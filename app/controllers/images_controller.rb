@@ -4,10 +4,10 @@ class ImagesController < ApplicationController
 	end
 
 	def feed
-		@images = []
-		Follower.where(user: current_user).each do |follower|
+		@images = current_user.images
+		Follower.where(user_id: current_user.id).each do |follower|
 			@images << User.find(follower.follower_id).images
-			@images.order(created_at: :desc)
 		end
+		@images = @images.order(created_at: :desc)
 	end
 end
