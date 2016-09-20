@@ -6,7 +6,7 @@ class CreateMessages < ActiveRecord::Migration
     	t.references :user
     	t.timestamps :expiry_time
     	t.boolean :read, null: false, default: false
-    	t.boolen :saved, null: false, default: false
+    	t.boolean :saved, null: false, default: false
       t.timestamps null: false
     end
   end
